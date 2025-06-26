@@ -1,0 +1,301 @@
+/* 文件路径：css/styles.css */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  /* 将基础字体设置为 18px 而不是浏览器默认 */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  min-height: 80vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar {
+  background-color: rgba(10, 10, 10, 0.9);
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  /* 网站 Logo 字体稍微增大一点 */
+  font-size: 5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.nav-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links ul li a {
+  /* 将导航链接字体从 1rem 提升到 1.125rem */
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.nav-links ul li a:hover {
+  color: #bbbbbb;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 80px 0;
+}
+
+.hero .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+  
+}
+
+.hero-title {
+  /* 将字体从 3rem 提升到 3.5rem */
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #ffffff;
+  position: relative;
+}
+
+.hero-subtitle {
+  /* 将字体从 1.25rem 提升到 1.5rem */
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #dddddd;
+}
+
+.hero-subtitle p {
+  margin: 10px 0;
+}
+
+.btn-start {
+  background-color: transparent;
+  color: #ffffff;
+  padding: 15px 30px;
+  /* 将按钮字体从 1rem 提升到 1.125rem */
+  font-size: 1.125rem;
+  border: 3px solid #ffffff;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 1s ease;
+  margin-right: 20px;
+}
+
+.btn-start:hover {
+  background-color: #ffffff;
+  color: #0a0a0a;
+}
+
+/* 背景图片样式 */
+.hero-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+  transition: all 0.8s ease;
+  filter: brightness(0.2) blur(2px);
+}
+
+.hero-image:hover img {
+  opacity: 0.8;
+  filter: brightness(0.8) blur(0);
+}
+
+/* 香气飘散效果 */
+.scent-container {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.scent-particle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.scent-container:hover .scent-particle {
+  animation: float-up 2s ease-out forwards;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-150px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* 中英文切换效果 */
+.hero-title .en-text,
+.hero-title .cn-text {
+  transition: all 0.8s ease;
+}
+
+.hero-title .cn-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition-delay: 0.2s;
+}
+
+.hero-title:hover .en-text {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition-delay: 0s;
+}
+
+.hero-title:hover .cn-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+/* 副标题文字切换效果 */
+.hero-subtitle .en-text,
+.hero-subtitle .cn-text {
+  transition: all 0.8s ease;
+  display: block;
+}
+
+.hero-subtitle .cn-text {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(20px);
+  transition-delay: 0.2s;
+}
+
+.hero-subtitle:hover .en-text {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition-delay: 0s;
+}
+
+.hero-subtitle:hover .cn-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .hero .container {
+    flex-direction: column;
+  }
+  
+  .hero-image {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-top: 30px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* 图片隐藏和照亮效果增强 */
+.hidden-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.hidden-image img {
+  opacity: 0.2;
+  transition: all 0.8s ease;
+  filter: brightness(0.2) blur(2px);
+  transform: scale(1);
+}
+
+.hidden-image:hover img {
+  opacity: 1;
+  filter: brightness(1) blur(0);
+  transform: scale(1.1);
+}
+
+/* 添加发光效果增强 */
+.hidden-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+              rgba(255, 255, 255, 0.3) 0%, 
+              transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.hidden-image:hover::after {
+  opacity: 1;
+}

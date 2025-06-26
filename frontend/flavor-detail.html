@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flavor Detail - Flavor Database</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/flavor-detail.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">Flavor</div>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="compound.html">Compound list</a></li>
+          <li><a href="flavor.html" class="active">Flavor list</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="learn.html">Learn more</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flavor-detail-page">
+    <div id="loadingOverlay" class="loading-overlay">
+      <div class="spinner"></div>
+    </div>
+    <div class="container">
+      <div class="back-link">
+        <a href="flavor.html">← Back to Flavor List</a>
+      </div>
+
+      <div class="flavor-header">
+        <div class="flavor-image">
+          <img id="flavorImage" src="" alt="Flavor Image" />
+        </div>
+        <div class="flavor-info">
+          <h1 class="flavor-title">
+            <span class="en-text" id="flavorNameEn"></span>
+            <span class="cn-text" id="flavorNameCn"></span>
+          </h1>
+          <p class="flavor-description" id="flavorDescription"></p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="sql-info">
+          <h2>Detailed Information</h2>
+          <div class="sql-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody id="sqlTableBody">
+                <!-- SQL information will be populated here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="flavor-data">
+          <h2>Flavor Data</h2>
+          <div class="data-grid" id="flavorDataGrid">
+            <!-- Flavor data will be populated here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/flavor-detail.js"></script>
+</body>
+</html> 

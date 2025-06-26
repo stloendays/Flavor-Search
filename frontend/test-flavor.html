@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Flavor Detail - Flavor Database</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .test-section {
+      margin: 20px 0;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .test-link {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 15px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .test-link:hover {
+      background: #0056b3;
+    }
+    .error-link {
+      background: #dc3545;
+    }
+    .error-link:hover {
+      background: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Flavor Detail 页面测试</h1>
+  
+  <div class="test-section">
+    <h2>✅ 正常测试链接</h2>
+    <p>这些链接应该能正常显示风味详情：</p>
+    <a href="flavor-detail.html?type=loquat" class="test-link">枇杷风味详情</a>
+    <a href="flavor-detail.html?type=peach" class="test-link">桃子风味详情</a>
+    <a href="flavor-detail.html?type=waxberry" class="test-link">树莓风味详情</a>
+  </div>
+
+  <div class="test-section">
+    <h2>❌ 错误测试链接</h2>
+    <p>这些链接应该显示错误并重定向：</p>
+    <a href="flavor-detail.html" class="test-link error-link">缺少参数</a>
+    <a href="flavor-detail.html?type=" class="test-link error-link">空参数</a>
+    <a href="flavor-detail.html?type=invalid" class="test-link error-link">无效风味类型</a>
+  </div>
+
+  <div class="test-section">
+    <h2>🔗 导航链接</h2>
+    <a href="index.html" class="test-link">返回主页</a>
+    <a href="flavor.html" class="test-link">风味列表</a>
+  </div>
+
+  <script>
+    // 添加一些测试功能
+    console.log('测试页面已加载');
+    
+    // 检查当前URL参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const testType = urlParams.get('test');
+    
+    if (testType) {
+      console.log('测试类型:', testType);
+    }
+  </script>
+</body>
+</html> 

@@ -1,0 +1,428 @@
+/* Flavor detail page styles - 现代大气端庄版本 */
+body {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.flavor-detail-page {
+  padding-top: 80px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  position: relative;
+}
+
+.flavor-detail-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(200, 200, 200, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 加载遮罩层 - 更优雅的设计 */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* 旋转加载器 - 更现代的设计 */
+.spinner {
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid #cccccc;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+  position: relative;
+}
+
+.spinner::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 3px solid transparent;
+  border-top: 3px solid rgba(204, 204, 204, 0.3);
+  border-radius: 50%;
+  animation: spin 2s linear infinite reverse;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 导航栏 - 更现代的设计 */
+.navbar {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #cccccc 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* 返回链接 - 更优雅的设计 */
+.back-link {
+  margin-bottom: 40px;
+}
+
+.back-link a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-link a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(-5px);
+}
+
+.back-link a::before {
+  content: '←';
+  font-size: 1.2rem;
+}
+
+/* 风味头部区域 - 更大气的设计 */
+.flavor-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  margin-bottom: 80px;
+  align-items: center;
+}
+
+.flavor-image {
+  width: 100%;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.flavor-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(204, 204, 204, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.flavor-image:hover::before {
+  opacity: 1;
+}
+
+.flavor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.flavor-image:hover img {
+  transform: scale(1.05);
+}
+
+.flavor-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flavor-title {
+  font-size: 3.5rem;
+  margin: 0 0 25px 0;
+  font-weight: 700;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.flavor-title .en-text,
+.flavor-title .cn-text {
+  display: block;
+}
+
+.flavor-title .cn-text {
+  font-size: 2.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.flavor-description {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* 内容区域 - 更现代的设计 */
+.content-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  margin-bottom: 60px;
+}
+
+.sql-info,
+.flavor-data {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.sql-info:hover,
+.flavor-data:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 0 0 30px 0;
+  font-weight: 600;
+  color: #ffffff;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(135deg, #cccccc 0%, #ffffff 100%);
+  border-radius: 2px;
+}
+
+.sql-table {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+th, td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+th {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.data-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.data-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+.data-item h3 {
+  font-size: 1.1rem;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.data-item p {
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: 700;
+  background: linear-gradient(135deg, #cccccc 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 导航链接样式 */
+.nav-links ul {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 10px 0;
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #ffffff;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #cccccc 0%, #ffffff 100%);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .flavor-header,
+  .content-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .flavor-image {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .flavor-title {
+    font-size: 2.5rem;
+  }
+
+  .flavor-title .cn-text {
+    font-size: 1.8rem;
+  }
+
+  .nav-links ul {
+    gap: 20px;
+  }
+
+  .sql-info,
+  .flavor-data {
+    padding: 25px;
+  }
+
+  .data-grid {
+    grid-template-columns: 1fr;
+  }
+} 

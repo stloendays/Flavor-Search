@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error - Flavor Database</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .error-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .error-code {
+      font-size: 6rem;
+      font-weight: bold;
+      color: #e74c3c;
+      margin-bottom: 1rem;
+    }
+    
+    .error-message {
+      font-size: 1.5rem;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+    }
+    
+    .error-description {
+      color: #7f8c8d;
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+    
+    .back-button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .back-button:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo scent-container">FLAVOR</div>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="compound.html">Compound list</a></li>
+          <li><a href="flavor.html">Flavor list</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="error-container">
+    <div class="error-code" id="errorCode">404</div>
+    <h1 class="error-message" id="errorMessage">Page Not Found</h1>
+    <p class="error-description" id="errorDescription">
+      The page you're looking for doesn't exist or has been moved.
+    </p>
+    <button class="back-button" onclick="goHome()">Back to Home</button>
+  </main>
+
+  <script>
+    // 获取错误信息
+    const urlParams = new URLSearchParams(window.location.search);
+    const errorCode = urlParams.get('code') || '404';
+    const errorMessage = urlParams.get('message') || 'Page Not Found';
+    const errorDescription = urlParams.get('description') || 'The page you\'re looking for doesn\'t exist or has been moved.';
+
+    // 更新页面内容
+    document.getElementById('errorCode').textContent = errorCode;
+    document.getElementById('errorMessage').textContent = errorMessage;
+    document.getElementById('errorDescription').textContent = errorDescription;
+    document.title = `${errorCode} - ${errorMessage} - Flavor Database`;
+
+    function goHome() {
+      window.location.href = 'index.html';
+    }
+
+    // 添加香气粒子效果
+    function createScentParticles() {
+      const containers = document.querySelectorAll('.scent-container');
+      
+      containers.forEach(container => {
+        for (let i = 0; i < 10; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'scent-particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.top = Math.random() * 100 + '%';
+          container.appendChild(particle);
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', createScentParticles);
+  </script>
+</body>
+</html> 

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compound List - Flavor Database</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/compound.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Flavor</a>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="compound.html" class="active">Compound list</a></li>
+          <li><a href="flavor.html">Flavor list</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="learn.html">Learn more</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="compound-page">
+    <div class="container">
+      <div class="page-header">
+        <h1 class="page-title">
+          <span class="en-text">Compound List</span>
+          <span class="cn-text">化合物列表</span>
+        </h1>
+        <div class="search-bar">
+          <input type="text" placeholder="Search compounds..." />
+          <button class="search-btn">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <div class="filter-tags">
+          <button class="filter-tag active">All</button>
+          <button class="filter-tag">Alcohols</button>
+          <button class="filter-tag">Aldehydes</button>
+          <button class="filter-tag">Ketones</button>
+          <button class="filter-tag">Esters</button>
+          <button class="filter-tag">Acids</button>
+          <button class="filter-tag">Terpenes</button>
+        </div>
+        <div class="sort-options">
+          <select class="sort-select">
+            <option value="name">Sort by Name</option>
+            <option value="category">Sort by Category</option>
+            <option value="popularity">Sort by Popularity</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="compound-grid">
+        <div class="compound-card">
+          <div class="compound-image">
+            <img src="images/compounds/ethanol.jpg" alt="Ethanol" />
+            <div class="compound-overlay">
+              <span class="view-more">View Details</span>
+            </div>
+          </div>
+          <div class="compound-info">
+            <h3>Ethanol</h3>
+            <p class="formula">C₂H₅OH</p>
+            <p class="description">A colorless liquid with a characteristic odor, commonly found in alcoholic beverages.</p>
+            <div class="compound-tags">
+              <span class="compound-tag">Alcohol</span>
+              <span class="compound-tag">Volatile</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="compound-card">
+          <div class="compound-image">
+            <img src="images/compounds/vanillin.jpg" alt="Vanillin" />
+            <div class="compound-overlay">
+              <span class="view-more">View Details</span>
+            </div>
+          </div>
+          <div class="compound-info">
+            <h3>Vanillin</h3>
+            <p class="formula">C₈H₈O₃</p>
+            <p class="description">The primary component of vanilla bean extract, responsible for its characteristic flavor.</p>
+            <div class="compound-tags">
+              <span class="compound-tag">Aldehyde</span>
+              <span class="compound-tag">Aromatic</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="compound-card">
+          <div class="compound-image">
+            <img src="images/compounds/limonene.jpg" alt="Limonene" />
+            <div class="compound-overlay">
+              <span class="view-more">View Details</span>
+            </div>
+          </div>
+          <div class="compound-info">
+            <h3>Limonene</h3>
+            <p class="formula">C₁₀H₁₆</p>
+            <p class="description">A monoterpene that gives citrus fruits their characteristic aroma.</p>
+            <div class="compound-tags">
+              <span class="compound-tag">Terpene</span>
+              <span class="compound-tag">Citrus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <span class="pagination-dots">...</span>
+        <button class="pagination-btn">10</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Flavor</h3>
+          <p>Discover the world of flavors through our comprehensive database of compounds and their characteristics.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="compound.html">Compounds</a></li>
+            <li><a href="flavor.html">Flavors</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: hnyjt7@Nottingham.edu.cn</p>
+          <p>Phone: +198 1075 0836</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Flavor Database. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html> 

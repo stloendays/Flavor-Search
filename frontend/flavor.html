@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flavor List - Flavor Database</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/flavor.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Flavor</a>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="compound.html">Compound list</a></li>
+          <li><a href="flavor.html" class="active">Flavor list</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flavor-page">
+    <div class="container">
+      <div class="page-header">
+        <h1 class="page-title">
+          <span class="en-text">Flavor List</span>
+          <span class="cn-text">风味列表</span>
+        </h1>
+        <div class="search-bar">
+          <input type="text" placeholder="Search flavors..." />
+          <button class="search-btn">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-tags">
+        <button class="filter-tag active">All</button>
+        <button class="filter-tag">Fruits</button>
+        <button class="filter-tag">Vegetables</button>
+        <button class="filter-tag">Herbs</button>
+        <button class="filter-tag">Spices</button>
+      </div>
+      
+      <div class="flavor-categories">
+        <a href="flavor-detail.html?type=loquat" class="category-card">
+          <div class="category-image">
+            <img src="images/loquat.jpg" alt="Loquat Flavors" />
+            <div class="category-overlay">
+              <span class="view-more">View Details</span>
+            </div>
+          </div>
+          <div class="category-info">
+            <h3>
+              <span class="en-text">Loquat</span>
+              <span class="cn-text">枇杷风味</span>
+            </h3>
+            <p class="count">120+ Flavors</p>
+            <div class="flavor-tags">
+              <span class="flavor-tag">Sweet</span>
+              <span class="flavor-tag">Fruity</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="flavor-detail.html?type=peach" class="category-card">
+          <div class="category-image">
+            <img src="images/peach.jpg" alt="Peach Flavors" />
+            <div class="category-overlay">
+              <span class="view-more">View Details</span>
+            </div>
+          </div>
+          <div class="category-info">
+            <h3>
+              <span class="en-text">Peach</span>
+              <span class="cn-text">桃子风味</span>
+            </h3>
+            <p class="count">85+ Flavors</p>
+            <div class="flavor-tags">
+              <span class="flavor-tag">Sweet</span>
+              <span class="flavor-tag">Juicy</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="flavor-detail.html?type=waxberry" class="category-card">
+          <div class="category-image">
+            <img src="images/waxberry.jpg" alt="Waxberry Flavors" />
+            <div class="category-overlay">
+              <span class="view-more">View Details</span>
+            </div>
+          </div>
+          <div class="category-info">
+            <h3>
+              <span class="en-text">Waxberry</span>
+              <span class="cn-text">树莓风味</span>
+            </h3>
+            <p class="count">95+ Flavors</p>
+            <div class="flavor-tags">
+              <span class="flavor-tag">Tart</span>
+              <span class="flavor-tag">Berry</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="pagination">
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <span class="pagination-dots">...</span>
+        <button class="pagination-btn">10</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Flavor</h3>
+          <p>Discover the world of flavors through our comprehensive database of compounds and their characteristics.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="compound.html">Compounds</a></li>
+            <li><a href="flavor.html">Flavors</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: info@flavor.com</p>
+          <p>Phone: +1 234 567 890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Flavor Database. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html> 
