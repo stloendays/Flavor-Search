@@ -1,91 +1,97 @@
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/stloendays/Flavor-Search.git
-git push -u origin main
-# Flavor Database System
+# Flavor Intelligence Platform
 
-一个现代化的风味数据库系统，包含前端展示和后端API服务。
+A full-stack flavor and chemical-data platform spanning data acquisition, structured storage, REST APIs, and a responsive web interface.
 
-Tony为你讲解。。。
- 🚀 快速开始
+## What I built
 
- 一键启动
+- **Full-stack application:** HTML/CSS/JavaScript frontend + Node.js/Express backend + MySQL database.
+- **Web data acquisition:** developed crawler/scraping and ingestion workflows to collect flavor, fruit, and chemical-compound information from online sources, then clean and standardize the records before database loading.
+- **Scientific data modeling:** organized fruit entities, flavor molecules, metadata fields, and properties into a searchable relational structure.
+- **REST API layer:** implemented Express endpoints, parameterized MySQL queries, JSON responses, CORS handling, error handling, and a health-check endpoint.
+- **Frontend experience:** built responsive home, flavor-list, flavor-detail, compound, search, and about pages with API-backed data retrieval.
 
-1. **确保已安装必要软件：**
-   - Node.js (https://nodejs.org/)
-   - Python (https://www.python.org/)
-   - MySQL (https://dev.mysql.com/downloads/mysql/) 或 XAMPP
+## Architecture
 
-2. **首次使用：**
-   ```bash
-   # 设置数据库
-   setup-database.bat
-   
-   # 一键启动系统
-   quick-start.bat
-   ```
+`Web sources -> crawler / data acquisition -> cleaning & structuring -> MySQL -> Node.js/Express REST API -> JavaScript frontend -> search & detail views`
 
-3. **后续使用：**
-   ```bash
-   # 直接启动
-   quick-start.bat
-   ```
+> Note: the current public repository contains the full-stack application and database/API implementation. The web-crawling/data-acquisition work was part of the project workflow, but the crawler source is not currently included in this repository.
 
-### 方法二：手动启动
+## Technology Stack
 
-1. **设置数据库：**
-   ```bash
-   # 运行数据库设置脚本
-   setup-database.bat
-   ```
+**Frontend:** HTML, CSS, JavaScript  
+**Backend:** Node.js, Express.js  
+**Database:** MySQL  
+**Data / Automation:** Python, web crawling/scraping, data cleaning, structured ingestion  
+**API:** REST, JSON, CORS
 
-2. **启动后端：**
-   ```bash
-   cd backend
-   npm install
-   npm run dev
-   ```
+## Quick Start
 
-3. **启动前端：**
-   ```bash
-   cd frontend
-   python -m http.server 8000
-   ```
+### Requirements
 
-## 📁 项目结构
+- Node.js
+- Python
+- MySQL or XAMPP
 
+### One-click setup
+
+```bash
+setup-database.bat
+quick-start.bat
 ```
+
+### Manual startup
+
+1. Set up the database:
+
+```bash
+setup-database.bat
+```
+
+2. Start the backend:
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+3. Start the frontend:
+
+```bash
+cd frontend
+python -m http.server 8000
+```
+
+## Project Structure
+
+```text
 flavor/
-├── backend/                 # 后端服务
-│   ├── app.js              # 主应用文件
-│   ├── package.json        # 依赖配置
-│   └── .env               # 环境配置（自动生成）
-├── frontend/               # 前端页面
-│   ├── index.html         # 主页
-│   ├── flavor.html        # 风味列表
-│   ├── flavor-detail.html # 风味详情
-│   ├── compound.html      # 化合物页面
-│   ├── search.html        # 搜索页面
-│   ├── about.html         # 关于页面
-│   ├── css/               # 样式文件
-│   ├── js/                # JavaScript文件
-│   └── images/            # 图片资源
-├── database/              # 数据库文件
-│   └── flavor_schema.sql  # 数据库结构
-├── start.bat              # 启动脚本
-├── setup-database.bat     # 数据库设置脚本
-├── quick-start.bat        # 一键启动脚本
-└── README.md              # 项目说明
+├── backend/
+│   ├── app.js
+│   ├── package.json
+│   └── .env
+├── frontend/
+│   ├── index.html
+│   ├── flavor.html
+│   ├── flavor-detail.html
+│   ├── compound.html
+│   ├── search.html
+│   ├── about.html
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── database/
+│   └── flavor_schema.sql
+├── setup-database.bat
+├── quick-start.bat
+└── README.md
 ```
 
-## 🔧 配置说明
+## Database Configuration
 
-### 数据库配置
+Default backend environment variables:
 
-默认配置（backend/.env）：
-```
+```text
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=123456
@@ -94,108 +100,38 @@ PORT=5000
 NODE_ENV=development
 ```
 
-如需修改数据库密码，请编辑 `backend/.env` 文件。
+## API
 
-### 端口配置
+- `GET /api/flavors/:type` - retrieve structured information for a flavor type.
+- `GET /api/health` - backend health check.
 
-- 前端：http://localhost:8000
-- 后端：http://localhost:5000
+The backend uses parameterized MySQL queries and returns structured JSON consumed by the frontend.
 
-## 🌐 访问地址
+## Frontend
 
-启动成功后，可以通过以下地址访问：
+The interface includes:
 
-- **主页**: http://localhost:8000
-- **风味列表**: http://localhost:8000/flavor.html
-- **风味详情**: http://localhost:8000/flavor-detail.html
-- **化合物页面**: http://localhost:8000/compound.html
-- **搜索页面**: http://localhost:8000/search.html
-- **关于页面**: http://localhost:8000/about.html
+- Home page
+- Flavor list
+- Flavor detail
+- Compound view
+- Search
+- About page
 
-## 🔍 健康检查
+The UI uses responsive CSS, Grid/Flexbox layouts, transitions, and API-backed dynamic data.
 
-检查后端服务状态：
-```
-http://localhost:5000/api/health
-```
+## Data Workflow
 
-## 🛠️ 故障排除
+The project was designed as an end-to-end data product rather than a static website:
 
-### 后端连接失败
+1. Acquire flavor/compound information from web sources.
+2. Clean and standardize heterogeneous records.
+3. Load structured records into MySQL.
+4. Expose the data through backend APIs.
+5. Retrieve and present the data through searchable web interfaces.
 
-1. **检查 MySQL 服务：**
-   - 确保 MySQL 服务正在运行
-   - 检查数据库密码是否正确
+This architecture makes the project relevant to full-stack engineering, scientific data engineering, database development, and AI-agent data infrastructure.
 
-2. **检查环境配置：**
-   - 确认 `backend/.env` 文件存在
-   - 验证数据库连接信息
+## License
 
-3. **检查依赖：**
-   ```bash
-   cd backend
-   npm install
-   ```
-
-### 前端无法访问
-
-1. **检查端口占用：**
-   - 确保 8000 端口未被占用
-   - 可以修改端口：`python -m http.server 8080`
-
-2. **检查 Python：**
-   - 确保 Python 已正确安装
-   - 检查 Python 版本：`python --version`
-
-### 数据库连接问题
-
-1. **重置数据库：**
-   ```bash
-   setup-database.bat
-   ```
-
-2. **手动创建数据库：**
-   ```sql
-   CREATE DATABASE flavor_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-   ```
-
-## 📝 开发说明
-
-### 添加新的风味数据
-
-1. 在数据库中插入风味基本信息
-2. 添加对应的 SQL 字段信息
-3. 添加风味属性数据
-4. 上传风味图片到 `frontend/images/` 目录
-
-### 修改样式
-
-- 主要样式文件：`frontend/css/`
-- 使用现代 CSS 特性：CSS Grid、Flexbox、渐变等
-- 支持响应式设计
-
-### API 接口
-
-- `GET /api/flavors/:type` - 获取指定风味的所有信息
-- `GET /api/health` - 健康检查
-
-## 🎨 设计特色
-
-- **现代暗色主题**：优雅的深色背景配合灰白色渐变
-- **响应式设计**：适配各种屏幕尺寸
-- **玻璃拟态效果**：现代化的 UI 设计
-- **流畅动画**：平滑的过渡和悬停效果
-- **优雅排版**：使用 Inter 字体，提升可读性
-
-## 📄 许可证
-
-本项目采用 ISC 许可证。
-
-## 🤝 贡献
-
-欢迎提交 Issue 和 Pull Request！
-发邮件至 hnyjt7@nottingham.edu.cn
-
----
-
-**注意**：首次使用请先运行 `setup-database.bat` 设置数据库，然后使用 `quick-start.bat` 启动系统。 
+ISC
